@@ -1,9 +1,10 @@
 import express from "express";
 import cors from 'cors';
 import router from "./routes/route"
-import connection from "./db/config";
+
 import { json, urlencoded } from "body-parser";
 
+import sequelize from "./db/config";
 const app = express();
 
 const PORT: string | number = process.env.PORT || 3050;
@@ -29,12 +30,12 @@ app.use(
   }
 );
 
-connection
+sequelize
   .sync()
   .then(() => {
     console.log("Database successfully connected");
   })
-  .catch((err) => {
+  .catch((err: any) => {
     console.log("Error", err);
   });
 

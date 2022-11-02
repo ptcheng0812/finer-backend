@@ -1,49 +1,34 @@
-import { Table, Model, Column, DataType } from "sequelize-typescript";
+const { Model, DataTypes } = require('sequelize');
+import sequelize from "../db/config";
 
-@Table({
-  timestamps: false,
-  tableName: "details",
+class Details extends Model { }
+
+Details.init({
+  firstName: {
+    type: DataTypes.STRING
+  },
+  surName: {
+    type: DataTypes.STRING
+  },
+  telephone: {
+    type: DataTypes.STRING
+  },
+  email: {
+    type: DataTypes.STRING
+  },
+  gender: {
+    type: DataTypes.STRING
+  },
+  dateOfBirth: {
+    type: DataTypes.STRING
+  },
+  comment: {
+    type: DataTypes.STRING
+  }
+}, {
+  sequelize,
+  modelName: 'details',
+  timestamps: false
 })
-export class Details extends Model {
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  firstName!: string;
 
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  surName!: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  email!: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  telephone!: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  gender!: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  dateOfBirth!: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  comment!: string;
-}
+module.exports = Details;

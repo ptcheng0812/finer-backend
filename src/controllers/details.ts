@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 
-import { Details } from "../models/details";
+const Details = require('../models/details')
 
 export const createDetails: RequestHandler = async (req, res, next) => {
   var details = await Details.create({ ...req.body });

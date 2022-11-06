@@ -5,25 +5,33 @@ class Details extends Model { }
 
 Details.init({
   firstName: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    allowNull: false
   },
   surName: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    allowNull: false
   },
   telephone: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    allowNull: false
   },
   email: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true
   },
   gender: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    allowNull: false
   },
   dateOfBirth: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    allowNull: false
   },
   comment: {
-    type: DataTypes.STRING
+    type: DataTypes.TEXT,
+    allowNull: false
   }
 }, {
   sequelize,
